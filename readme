@@ -1,0 +1,39 @@
+Inizializza un progetto brownie creando tutte le cartelle necessarie
+> brownie init
+
+Compilare tutti gli script Python e Solidity
+> brownie compile
+
+Per compilare ed eseguire uno script python su ganache locale (no persistente)
+> brownie run .\scripts\fund_n_withdraw.py
+
+Per compilare ed eseguire uno script python su una network specifica
+> brownie run .\scripts\fund_n_withdraw.py --network ganache-local
+> brownie run .\scripts\deploy.py --network rinkeby
+
+Vedere la lsita delle network:
+> brownie networks list
+
+Aggiungere una network alla lista delle network gestita da brownie (ganache GUI)
+> brownie networks add Ethereum ganache-local host=http://127.0.0.1:8545 chainid=1337
+
+Per lanciare tutti i test:
+> brownie test
+
+Per lanciare i test e aprire un debugger se un test fallisce
+> brownie test -s --pdb
+
+Per eseguire solo uno specifico test
+> brownie test -k test_deploy
+
+Aggiunge un nuovo account interno a brownie la cui chiave privata è cifrata
+> brownie accounts new rick-testnet
+
+Per vedere gli account interni a brownie la cui chiave privata è cifrata
+> brownie accounts list
+
+Per interagire con brownie tramite un interprete
+> brownie console
+
+Aggiunge una network di sviluppo con nome mainnet-fork-dev, comandabile da ganache ed è un fork della blockchain presente su Infura. Aggiunge 10 account ed un memonic. L'alternativa è usare Alchemy come blockchain di partenza da cui fare il fork
+> brownie networks add development mainnet-fork-dev cmd=ganache-cli host=http://127.0.0.1 fork='https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID' accounts=10 mnemonic=brownie port=8545
